@@ -5,6 +5,7 @@ In this project I used:
 - <a href="https://developer.android.com/reference/android/support/v7/widget/CardView.html">CardView</a>
 - <a href="http://jakewharton.github.io/butterknife/">Butter Knife</a>
 - <a href="http://square.github.io/retrofit/">Retrofit 2</a>
+- <a href="https://realm.io/docs/java/latest/">Realm</a>
 - <a href="http://square.github.io/picasso/">Picasso</a>
 # Preview
 <p><img src="https://github.com/Shevatro/GettyImages/blob/master/Screenshot_2017-11-03-20-50-48.png" height="450px"/>
