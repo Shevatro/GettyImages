@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GettyImages</string>
+    <string name="et_hint">Enter a keyword to search for image</string>
+    <string name="error_find">Image not found</string>
+    <string name="error_internet">No Internet</string>
+    <string name="ok">Ok</string>
+</resources>
