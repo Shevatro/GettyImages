@@ -1,5 +1,6 @@
 package shevatro.gettyimages.ui.fragment;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
@@ -30,10 +31,8 @@ import java.util.List;
 
 public class SearchFragment extends Fragment {
     private final String DIALOG = "dialog";
-    @BindView(R.id.search_layout)
-    TextInputLayout searchLayout;
-    @BindView(R.id.et_search)
-    EditText editKeyWord;
+    @BindView(R.id.search_layout) TextInputLayout searchLayout;
+    @BindView(R.id.et_search) EditText editKeyWord;
 
     private Realm realm;
 
@@ -105,11 +104,11 @@ public class SearchFragment extends Fragment {
         if (checkEmptyField(phrase)) {
             return;
         }
-        Call<SearchImages> messages = App.getApi().images(phrase);
+        Call<SearchImages> messages = App.getComponent().getRetrofit().images(phrase);
 
         messages.enqueue(new Callback<SearchImages>() {
             @Override
-            public void onResponse(Call<SearchImages> call, Response<SearchImages> response) {
+            public void onResponse(@NonNull Call<SearchImages> call, @NonNull Response<SearchImages> response) {
                 if (response.isSuccessful()) {
                     List<Image> images = response.body().getImages();
                     if (!images.isEmpty() && !images.get(0).getDisplaySizes().isEmpty()) {
@@ -125,7 +124,7 @@ public class SearchFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<SearchImages> call, Throwable t) {
+            public void onFailure(@NonNull Call<SearchImages> call, @NonNull Throwable t) {
                 showDialog(getString(R.string.error_internet));
             }
         });

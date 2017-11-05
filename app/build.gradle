@@ -10,7 +10,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL", '"https://api.gettyimages.com/v3/"'
+        buildConfigField "String", "API_KEY", '"2tehjw9nuuxn3epprswb9m4m"'
     }
+
     buildTypes {
         release {
             minifyEnabled false
