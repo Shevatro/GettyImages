@@ -1,5 +1,6 @@
 package shevatro.gettyimages.ui.fragment;
 
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,7 +30,10 @@ import java.util.List;
 
 public class SearchFragment extends Fragment {
     private final String DIALOG = "dialog";
-    @BindView(R.id.et_search) EditText mEditTitle;
+    @BindView(R.id.search_layout)
+    TextInputLayout searchLayout;
+    @BindView(R.id.et_search)
+    EditText editKeyWord;
 
     private Realm realm;
 
@@ -57,7 +61,6 @@ public class SearchFragment extends Fragment {
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_SEND) {
             search(getTrimmedText());
-            mEditTitle.setText("");
             return true;
         }
         return false;
@@ -78,12 +81,30 @@ public class SearchFragment extends Fragment {
     }
 
     /**
-     * A method for searching for images by keyword
+     * The method for checking the text field for empty space
+     *
+     * @param str A string of EditText
+     */
+    private boolean checkEmptyField(String str) {
+        boolean isEmpty = str.isEmpty();
+        searchLayout.setErrorEnabled(isEmpty);
+        if (isEmpty) {
+            searchLayout.setError(getString(R.string.error_empty));
+        } else {
+            editKeyWord.setText("");
+        }
+        return isEmpty;
+    }
+
+    /**
+     * Method for searching for images by keyword
      *
      * @param phrase Key word for search
      */
     private void search(final String phrase) {
-
+        if (checkEmptyField(phrase)) {
+            return;
+        }
         Call<SearchImages> messages = App.getApi().images(phrase);
 
         messages.enqueue(new Callback<SearchImages>() {
@@ -111,7 +132,7 @@ public class SearchFragment extends Fragment {
     }
 
     private String getTrimmedText() {
-        return mEditTitle.getText().toString().trim();
+        return editKeyWord.getText().toString().trim();
     }
 
     private void showDialog(String msg) {
