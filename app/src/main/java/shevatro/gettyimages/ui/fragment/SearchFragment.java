@@ -24,22 +24,29 @@ import retrofit2.Response;
 
 import shevatro.gettyimages.App;
 import shevatro.gettyimages.R;
+import shevatro.gettyimages.data.db.GettyImagesApi;
 import shevatro.gettyimages.data.db.ImageRealm;
 import shevatro.gettyimages.data.gson.*;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class SearchFragment extends Fragment {
     private final String DIALOG = "dialog";
-    @BindView(R.id.search_layout) TextInputLayout searchLayout;
-    @BindView(R.id.et_search) EditText editKeyWord;
-
-    private Realm realm;
+    @BindView(R.id.search_layout)
+    TextInputLayout searchLayout;
+    @BindView(R.id.et_search)
+    EditText editKeyWord;
+    @Inject
+    GettyImagesApi retrofit;
+    @Inject
+    Realm realm;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        realm = Realm.getDefaultInstance();
+        App.getComponent().injectSearchFragment(this);
     }
 
     @Nullable
@@ -104,7 +111,7 @@ public class SearchFragment extends Fragment {
         if (checkEmptyField(phrase)) {
             return;
         }
-        Call<SearchImages> messages = App.getComponent().getRetrofit().images(phrase);
+        Call<SearchImages> messages = retrofit.images(phrase);
 
         messages.enqueue(new Callback<SearchImages>() {
             @Override

@@ -1,5 +1,7 @@
 package shevatro.gettyimages.dagger2;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
@@ -10,6 +12,7 @@ import shevatro.gettyimages.data.db.GettyImagesApi;
 @Module
 public class NetworkModule {
     @Provides
+    @Singleton
     GettyImagesApi provideRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)

@@ -9,24 +9,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.Sort;
 
+import shevatro.gettyimages.App;
 import shevatro.gettyimages.R;
 import shevatro.gettyimages.data.db.ImageRealm;
 import shevatro.gettyimages.ui.adapter.ListAdapter;
 
 public class ListFragment extends Fragment {
 
-    @BindView(R.id.recycler_view) RecyclerView recyclerView;
-    private Realm realm;
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+    @Inject
+    Realm realm;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        realm = Realm.getDefaultInstance();
+        App.getComponent().injectListFragment(this);
     }
 
     @Nullable

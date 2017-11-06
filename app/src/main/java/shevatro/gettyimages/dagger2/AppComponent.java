@@ -1,9 +1,14 @@
 package shevatro.gettyimages.dagger2;
 
-import dagger.Component;
-import shevatro.gettyimages.data.db.GettyImagesApi;
+import javax.inject.Singleton;
 
-@Component(modules = {NetworkModule.class})
+import dagger.Component;
+import shevatro.gettyimages.ui.fragment.ListFragment;
+import shevatro.gettyimages.ui.fragment.SearchFragment;
+
+@Singleton
+@Component(modules = {NetworkModule.class, DbModule.class})
 public interface AppComponent {
-    GettyImagesApi getRetrofit();
+    void injectSearchFragment(SearchFragment fragment);
+    void injectListFragment(ListFragment fragment);
 }
