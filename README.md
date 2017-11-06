@@ -6,6 +6,7 @@ In this project I used:
 - <a href="http://jakewharton.github.io/butterknife/">Butter Knife</a>
 - <a href="http://square.github.io/retrofit/">Retrofit 2</a>
 - <a href="https://realm.io/docs/java/latest/">Realm</a>
+- <a href="https://google.github.io/dagger/">Dagger2</a>
 - <a href="http://square.github.io/picasso/">Picasso</a>
 # Preview
 <p><img src="https://github.com/Shevatro/GettyImages/blob/master/Screenshot_2017-11-05-13-37-51.png" height="450px"/>
