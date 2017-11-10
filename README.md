@@ -1,6 +1,7 @@
 # GettyImages
 Search images from the site <a href="http://developers.gettyimages.com/api/docs/">gettyimages.com</a>.
 In this project I used:
+- <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">Mvp pattern</a>
 - <a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a>
 - <a href="https://developer.android.com/reference/android/support/v7/widget/CardView.html">CardView</a>
 - <a href="http://jakewharton.github.io/butterknife/">Butter Knife</a>
