@@ -4,5 +4,8 @@
     <string name="error_empty">The field is empty</string>
     <string name="error_find">Image not found</string>
     <string name="error_internet">No Internet</string>
+    <string name="images_progress">Loading images…</string>
+    <string name="loading_progress">Loading…</string>
     <string name="ok">Ok</string>
+    <string name="please_wait">Please, wait</string>
 </resources>

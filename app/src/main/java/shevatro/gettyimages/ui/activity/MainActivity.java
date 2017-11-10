@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import shevatro.gettyimages.R;
-import shevatro.gettyimages.ui.fragment.SearchFragment;
+import shevatro.gettyimages.ui.fragment.search.SearchFragment;
 import shevatro.gettyimages.ui.fragment.ListFragment;
 
 public class MainActivity extends AppCompatActivity {
