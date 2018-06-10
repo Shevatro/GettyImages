@@ -17,9 +17,6 @@ import shevatro.gettyimages.data.db.ImageRealm;
 import shevatro.gettyimages.data.gson.Image;
 import shevatro.gettyimages.data.gson.SearchImages;
 
-/**
- * @author Artur Vasilov
- */
 public class SearchPresenter {
 
     private final SearchView searchView;
